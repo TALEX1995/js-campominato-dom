@@ -7,7 +7,8 @@ const levelDiff = document.getElementById('difficulty-level');
 const mainGame = document.querySelector('.row');
 const scorePlaceholder = document.getElementById('score');
 const restartGame = document.getElementById('restart-game');
-
+const winMessage = document.getElementById('win-message');
+const loseMessage = document.getElementById('lose-message');
 
 // Event listener click
 
@@ -43,7 +44,9 @@ play.addEventListener('click', function (event) {
 
     // Refresh game
     mainGame.innerHTML = ''
-
+    loseMessage.classList.add('d-none')
+    winMessage.classList.add('d-none')
+    restartGame.classList.add('d-none');
 
 
     // Initial data
@@ -105,21 +108,22 @@ play.addEventListener('click', function (event) {
                 if (itIsBomb) {
                     cell.classList.add('bomb');
                     inGame = false
+                    loseMessage.classList.remove('d-none')
                 }   else { 
                     console.log(i);
                     score++ 
                     if (score === (totalCells - bombNumber)){
-                        inGame = false
+                        inGame = false;
+                        winMessage.classList.remove('d-none');
                     }
                 }
             }   else {
                 restartGame.classList.remove('d-none');
             }
-
+            // Write score message into DOM
             scorePlaceholder.innerText = score
         })
     }
-
-    
-
+    // Refresh to 0 score message when click play again
+    scorePlaceholder.innerText = score
 })

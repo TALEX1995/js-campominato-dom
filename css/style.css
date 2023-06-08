@@ -16,6 +16,16 @@ header #restart-game {
     color: red;
 }
 
+header #lose-message {
+    font-size: 20px;
+    color: red;
+}
+
+header #win-message {
+    font-size: 20px;
+    color: green;
+}
+
 /* Main */
 
 main {
