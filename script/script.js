@@ -45,15 +45,18 @@ play.addEventListener('click', function (event) {
         cols = 7;
         totalCells = rows * cols
     }
-    
+
 
     // Create Bomb
     const bombNumber = 16;
     let randomBombNumber = [];
 
     // Cicle to fill array with bomb number
-    while(randomBombNumber.length !== bombNumber) {
-        const randomNumber = Math.floor(Math.random() * totalCells) + 1
+    while(randomBombNumber.length < bombNumber) {
+        let randomNumber;
+        do {
+            randomNumber = Math.floor(Math.random() * totalCells) + 1;
+        } while (randomBombNumber.includes(randomNumber));
         randomBombNumber.push(randomNumber);
     }
     console.log(randomBombNumber)
