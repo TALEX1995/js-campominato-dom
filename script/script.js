@@ -17,11 +17,11 @@ play.addEventListener('click', function (event) {
 
     // Function
     const createCell = (levelDiffValue) => {
-    const cell = document.createElement('div');
-    cell.classList.add('cell');
-    cell.classList.add(levelDiffValue);
-    
-    return cell;
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.classList.add(levelDiffValue);
+        
+        return cell;
     }
 
     const generateBombs = (totalCells, bombNumber) => {
@@ -38,6 +38,7 @@ play.addEventListener('click', function (event) {
         console.log(randomBombNumber);
         return randomBombNumber;
     }
+
 
     // Refresh game
     mainGame.innerHTML = ''
@@ -65,6 +66,7 @@ play.addEventListener('click', function (event) {
     // Create Bomb
     const bombNumber = 16;
     
+    const bombs = generateBombs(totalCells, bombNumber);
 
     
 
@@ -82,13 +84,22 @@ play.addEventListener('click', function (event) {
         // Insert cell into DOM
         mainGame.appendChild(cell);
 
+        // Control if the number is a bomb
+        const itIsBomb = bombs.includes(parseInt(cell.innerText));
         
 
         // Add class Active at the click on the cell
         cell.addEventListener('click', function () {
+            // Stop function if cell is already clicked
+            if (cell.classList.contains('active')) return;
+
+            // Add active class
+            cell.classList.add('active');
+
             // Condition to increment score only if the cell it hadn't been clicked
-            if (!cell.classList.contains('active')){
-                cell.classList.add('active');
+            if (itIsBomb) {
+                cell.classList.add('bomb')
+            }   else { 
                 console.log(i) 
                 score++
             }

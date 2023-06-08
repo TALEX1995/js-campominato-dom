@@ -46,7 +46,7 @@ Quando la partita termina dobbiamo capire se è terminata perchè è stata clicc
 1.  Creo una condizione in modo da incrementare la variabile al punto 2 quando il giocatore clicca su una casella che non era ancora stata cliccata
 1.  Creo un Array vuoto
 1.  Creo un ciclo finche l'Array al punto 4 non avrà 16 numeri al suo interno che vanno da 1 ad un massimo del numerro di celle in base alla difficoltà
-    - inserisco nell'Array solamente i numeri presenti già al suo interno
+    - inserisco nell'Array solamente i numeri non presenti già al suo interno
 1.  Creo una condizione per andare a verificare se il numero della cella scelta dal giocatore si trova nell'array delle bombe
     - SE il numero è presente aggiungo alla cella una classe per farla colorare di rosso
       - Fermo il gioco è mostro il messaggio Hai perso in pagina

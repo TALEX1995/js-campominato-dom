@@ -59,6 +59,11 @@ main {
     cursor: not-allowed;
 }
 
+.active.bomb {
+    background-color: red;
+    cursor: not-allowed;
+}
+
 /* Footer */
 
 footer {
