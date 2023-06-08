@@ -1,0 +1,70 @@
+
+/* Header */
+
+header {
+    height: 150px;
+    background-color: white;
+}
+
+header img {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Main */
+
+main {
+    background-color: #7fffd4;
+    width: 100%;
+    height: calc(100vh - 200px);
+    overflow: auto;
+}
+
+.container {
+    max-width: 1200px;
+    height: 100%;
+}
+
+.container .row {
+    width: 100%;
+    height: 100%;
+}
+
+.container .cell {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.cell.ten-cell {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.cell.nine-cell {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.cell.eight-cell {
+    width: calc(100% / 8);
+    height: calc(100% / 8);
+}
+
+.cell.active {
+    background-color: lightblue;
+}
+
+/* Footer */
+
+footer {
+    height: 50px;
+}
+
+footer p {
+    line-height: 50px;
+}
+
