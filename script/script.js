@@ -139,4 +139,6 @@ play.addEventListener('click', function (event) {
             scorePlaceholder.innerText = score
         })
     }
+    // Refresh to 0 score message when click play again
+    scorePlaceholder.innerText = score
 })
