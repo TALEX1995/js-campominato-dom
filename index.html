@@ -19,13 +19,15 @@
             <h1>Campo Minato</h1>
         </div>
 
-        <!-- Middle header -->       
-        <p>Score: <span id="score"></span></p>
-        
+        <!-- Middle header -->   
+        <div>    
+            <p class="text-center">Score: <span id="score"></span></p>
+            <p class="d-none" id="restart-game">I'm sorry the game is over, click play to restart the game</p>
+        </div>
         <!-- Header right side -->
         <div>
             <form class="d-flex align-items-center">
-                <label class="me-2" for="difficulty-level">Difficoltà:</label>
+                <label class="me-2" for="difficulty-level">Difficulty:</label>
                 <select class="form-select" aria-label="Default select example" id="difficulty-level">
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>

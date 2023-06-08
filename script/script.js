@@ -6,6 +6,7 @@ const play = document.getElementById('play');
 const levelDiff = document.getElementById('difficulty-level');
 const mainGame = document.querySelector('.row');
 const scorePlaceholder = document.getElementById('score');
+const restartGame = document.getElementById('restart-game');
 
 
 // Event listener click
@@ -69,9 +70,11 @@ play.addEventListener('click', function (event) {
     const bombs = generateBombs(totalCells, bombNumber);
 
     
-
     // Variable to put Score in DOM
     let score = 0;
+
+    // Variable to see if the game is over
+    let inGame = true
 
     // Cicle to generate cell into DOM
     for(let i = 1; i <= totalCells; i++) {
@@ -83,27 +86,35 @@ play.addEventListener('click', function (event) {
 
         // Insert cell into DOM
         mainGame.appendChild(cell);
-
-        // Control if the number is a bomb
-        const itIsBomb = bombs.includes(parseInt(cell.innerText));
-        
+   
 
         // Add class Active at the click on the cell
         cell.addEventListener('click', function () {
-            // Stop function if cell is already clicked
-            if (cell.classList.contains('active')) return;
 
-            // Add active class
-            cell.classList.add('active');
+            if (inGame) {
+                // Stop function if cell is already clicked
+                if (cell.classList.contains('active')) return;
 
-            // Condition to increment score only if the cell it hadn't been clicked
-            if (itIsBomb) {
-                cell.classList.add('bomb')
-            }   else { 
-                console.log(i) 
-                score++
+                // Add active class
+                cell.classList.add('active');
+
+                // Control if the number is a bomb
+                const itIsBomb = bombs.includes(parseInt(cell.innerText));
+
+                // Condition to end the game
+                if (itIsBomb) {
+                    cell.classList.add('bomb');
+                    inGame = false
+                }   else { 
+                    console.log(i);
+                    score++ 
+                    if (score === (totalCells - bombNumber)){
+                        inGame = false
+                    }
+                }
+            }   else {
+                restartGame.classList.remove('d-none');
             }
-            
 
             scorePlaceholder.innerText = score
         })

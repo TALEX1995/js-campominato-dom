@@ -11,6 +11,11 @@ header img {
     height: auto;
 }
 
+header #restart-game {
+    font-size: 25px;
+    color: red;
+}
+
 /* Main */
 
 main {
