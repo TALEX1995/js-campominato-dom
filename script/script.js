@@ -41,6 +41,18 @@ play.addEventListener('click', function (event) {
         return randomBombNumber;
     }
 
+    const revealCells = () => {
+        // Recover Cells
+        const cells = document.querySelectorAll('.cell');
+
+        for(let i = 0; i < cells.length; i++ ){
+            const cell = cells[i];
+            cell.classList.add('active');
+            const cellNumber = parseInt(cell.innerText)
+            if (bombs.includes(cellNumber)) cell.classList.add('bomb');
+        }
+    }
+
 
     // Refresh game
     mainGame.innerHTML = ''
@@ -106,9 +118,12 @@ play.addEventListener('click', function (event) {
 
                 // Condition to end the game
                 if (itIsBomb) {
-                    cell.classList.add('bomb');
+                    // Use function to reveal cells
+                    revealCells()
+                    
                     inGame = false
                     loseMessage.classList.remove('d-none')
+                    
                 }   else { 
                     console.log(i);
                     score++ 
