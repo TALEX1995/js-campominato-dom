@@ -7,13 +7,6 @@ const levelDiff = document.getElementById('difficulty-level');
 const mainGame = document.querySelector('.row');
 
 
-// Function
-const createCell = () => {
-    const cell = document.createElement('div');
-    cell.classList.add('cell')
-    
-    return cell;
-}
 
 
 // Event listener click
@@ -22,6 +15,16 @@ play.addEventListener('click', function (event) {
     // Stoped submit event
     event.preventDefault()
 
+
+    // Function
+    const createCell = (levelDiffValue) => {
+    const cell = document.createElement('div');
+    cell.classList.add('cell');
+    cell.classList.add(levelDiffValue);
+    
+    return cell;
+    }
+
     // Refresh game
     mainGame.innerHTML = ''
 
@@ -29,13 +32,14 @@ play.addEventListener('click', function (event) {
     let rows = 10;
     let cols = 10;
     let totalCells = rows * cols;
+    
 
     // Change row and cols based on levelDiff Value
-    if (parseInt(levelDiff.value) === 2) {
+    if (levelDiff.value === 'medium') {
         rows = 9;
         cols = 9;
         totalCells = rows * cols
-    } else if (parseInt(levelDiff.value) === 3) {
+    } else if (levelDiff.value === 'hard') {
         rows = 8;
         cols = 8;
         totalCells = rows * cols
@@ -44,22 +48,13 @@ play.addEventListener('click', function (event) {
     // Cicle to generate cell into DOM
     for(let i = 1; i <= totalCells; i++) {
         // Create a variable to save cell element
-        const cell = createCell();
+        const cell = createCell(levelDiff.value);
 
         // Insert the numbers in the cell
         cell.innerText = i
 
         // Insert cell into DOM
         mainGame.appendChild(cell);
-
-        // Condition to change cell width
-        if (totalCells === 100) {
-            cell.classList.add('ten-cell');
-        }   else if (totalCells === 81) {
-            cell.classList.add('nine-cell')
-        }   else {
-            cell.classList.add('eight-cell');
-        }
 
 
         // Add class Active at the click on the cell

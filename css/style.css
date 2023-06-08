@@ -39,17 +39,17 @@ main {
     cursor: pointer;
 }
 
-.cell.ten-cell {
+.cell.easy {
     width: calc(100% / 10);
     height: calc(100% / 10);
 }
 
-.cell.nine-cell {
+.cell.medium {
     width: calc(100% / 9);
     height: calc(100% / 9);
 }
 
-.cell.eight-cell {
+.cell.hard {
     width: calc(100% / 8);
     height: calc(100% / 8);
 }
