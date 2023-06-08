@@ -27,6 +27,8 @@ play.addEventListener('click', function (event) {
     // Refresh game
     mainGame.innerHTML = ''
 
+
+
     // Initial data
     let rows = 10;
     let cols = 10;
@@ -39,10 +41,23 @@ play.addEventListener('click', function (event) {
         cols = 9;
         totalCells = rows * cols
     } else if (levelDiff.value === 'hard') {
-        rows = 8;
-        cols = 8;
+        rows = 7;
+        cols = 7;
         totalCells = rows * cols
     }
+    
+
+    // Create Bomb
+    const bombNumber = 16;
+    let randomBombNumber = [];
+
+    // Cicle to fill array with bomb number
+    while(randomBombNumber.length !== bombNumber) {
+        const randomNumber = Math.floor(Math.random() * totalCells) + 1
+        randomBombNumber.push(randomNumber);
+    }
+    console.log(randomBombNumber)
+
 
     // Variable to put Score in DOM
     let score = 0;
