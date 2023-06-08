@@ -24,6 +24,21 @@ play.addEventListener('click', function (event) {
     return cell;
     }
 
+    const generateBombs = (totalCells, bombNumber) => {
+
+        let randomBombNumber = [];
+
+        while(randomBombNumber.length < bombNumber) {
+            let randomNumber;
+            do {
+                randomNumber = Math.floor(Math.random() * totalCells) + 1;
+            } while (randomBombNumber.includes(randomNumber));
+            randomBombNumber.push(randomNumber);
+        }
+        console.log(randomBombNumber);
+        return randomBombNumber;
+    }
+
     // Refresh game
     mainGame.innerHTML = ''
 
@@ -49,18 +64,9 @@ play.addEventListener('click', function (event) {
 
     // Create Bomb
     const bombNumber = 16;
-    let randomBombNumber = [];
+    
 
-    // Cicle to fill array with bomb number
-    while(randomBombNumber.length < bombNumber) {
-        let randomNumber;
-        do {
-            randomNumber = Math.floor(Math.random() * totalCells) + 1;
-        } while (randomBombNumber.includes(randomNumber));
-        randomBombNumber.push(randomNumber);
-    }
-    console.log(randomBombNumber)
-
+    
 
     // Variable to put Score in DOM
     let score = 0;
