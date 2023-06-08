@@ -5,8 +5,7 @@ console.log('JS OK')
 const play = document.getElementById('play');
 const levelDiff = document.getElementById('difficulty-level');
 const mainGame = document.querySelector('.row');
-
-
+const scorePlaceholder = document.getElementById('score');
 
 
 // Event listener click
@@ -44,7 +43,10 @@ play.addEventListener('click', function (event) {
         cols = 8;
         totalCells = rows * cols
     }
-    
+
+    // Variable to put Score in DOM
+    let score = 0;
+
     // Cicle to generate cell into DOM
     for(let i = 1; i <= totalCells; i++) {
         // Create a variable to save cell element
@@ -56,12 +58,22 @@ play.addEventListener('click', function (event) {
         // Insert cell into DOM
         mainGame.appendChild(cell);
 
+        
 
         // Add class Active at the click on the cell
         cell.addEventListener('click', function () {
-            cell.classList.toggle('active');
-            console.log(i)
+            // Condition to increment score only if the cell it hadn't been clicked
+            if (!cell.classList.contains('active')){
+                cell.classList.add('active');
+                console.log(i) 
+                score++
+            }
+            
+
+            scorePlaceholder.innerText = score
         })
     }
+
+    
 
 })
